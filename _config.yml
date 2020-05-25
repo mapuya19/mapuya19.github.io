@@ -11,7 +11,7 @@ zip_code:
 country: United States of America
 phone: 
 
-icon: fa-diamond # Font Awesome class for your site's icon
+icon: fa-jedi-order # Font Awesome class for your site's icon
 
 # Social settings
 facebook_url:
@@ -20,8 +20,8 @@ gitlab_url:
 googleplus_url: 
 instagram_url: https://instagram.com/matthewapuya
 linkedin_url: 
-pinterest_url:
-slack_url:
+pinterest_url: 
+slack_url: 
 twitter_url: https://twitter.com/mapuya19
 
 # Build settings

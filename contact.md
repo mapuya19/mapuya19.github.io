@@ -1,5 +1,5 @@
 ---
-title: contact
+title: Contact
 ---
 
 <form action="https://formspree.io/{{ site.email }}" method="POST">
