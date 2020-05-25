@@ -1,30 +1,17 @@
-<footer class="site-footer h-card">
-  <data class="u-url" href="{{ "/" | relative_url }}"></data>
+</div>
 
-  <div class="wrapper">
+  <!-- Footer -->
+  <footer id="footer">
+    <p class="copyright">&copy; {{ site.title }}. Design: <a href="https://html5up.net">HTML5 UP</a>. Jekyll integration: <a href="https://andrewbanchi.ch">Andrew Banchich</a>.</p>
+  </footer>
 
-    <div class="footer-col-wrapper">
-      <div class="footer-col">
-      {%- if site.author %}
-        <ul class="contact-list">
-          {% if site.author.name -%}
-            <li class="p-name">{{ site.author.name | escape }}</li>
-          {% endif -%}
-          {% if site.author.email -%}
-            <li><a class="u-email" href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></li>
-          {%- endif %}
-        </ul>
-      {%- endif %}
-      </div>
-      <div class="footer-col">
-        <p>{{ site.description | escape }}</p>
-      </div>
-    </div>
+</div>
 
-    <div class="social-links">
-      {%- include social.html -%}
-    </div>
+<!-- BG -->
+<div id="bg"></div>
 
-  </div>
-
-</footer>
+<!-- Scripts -->
+<script src="{{ 'assets/js/jquery.min.js' | absolute_url }}"></script>
+<script src="{{ 'assets/js/skel.min.js' | absolute_url }}"></script>
+<script src="{{ 'assets/js/util.js' | absolute_url }}"></script>
+<script src="{{ 'assets/js/main.js' | absolute_url }}"></script>

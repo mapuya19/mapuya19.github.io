@@ -1,58 +1,35 @@
+# Site settings
 title: Matthew Apuya
-author:
-  name: Email me!
-  email: mja610@nyu.edu
-description: > # this means to ignore newlines until "show_excerpts:"
-  A CS student studying in New York City.
+email: mja610@nyu.edu
+description: A CS Student in New York City
+url: "" # the base hostname & protocol for your site
+author: Matthew Apuya
+street_address: 
+city: 
+state: NY
+zip_code: 
+country: United States of America
+phone: 
 
-show_excerpts: false # set to true to show excerpts on the homepage
+icon: fa-diamond # Font Awesome class for your site's icon
 
-# Minima date format
-# refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
-minima:
-  date_format: "%b %-d, %Y"
-
-  # generate social links in footer
-  social_links:
-    twitter: mapuya19
-    github:  mapuya19
-    # devto: jekyll
-    # dribbble: jekyll
-    # facebook: jekyll
-    # flickr:   jekyll
-    instagram: matthewapuya
-    # linkedin: jekyll
-    # pinterest: jekyll
-    youtube: matthewapuya
-    # youtube_channel: UC8CXR0-3I70i1tfPg1PAE1g
-    # youtube_channel_name: CloudCannon
-    # telegram: jekyll
-    # googleplus: +jekyll
-    # microdotblog: jekyll
-    # keybase: jekyll
-
-    # Mastodon instances
-    # mastodon:
-    # - username: jekyll
-    #   instance: example.com
-    # - username: jekyll2
-    #   instance: example.com
-
-    # GitLab instances
-    # gitlab:
-    # - username: jekyll
-    #   instance: example.com
-    # - username: jekyll2
-    #   instance: example.com
-
-# If you want to link only specific pages in your header, uncomment
-# this and add the path to the pages in order as they should show up
-#header_pages:
-# - about.md
+# Social settings
+facebook_url:
+github_url: https://github.com/mapuya19
+gitlab_url: 
+googleplus_url: 
+instagram_url: https://instagram.com/matthewapuya
+linkedin_url: 
+pinterest_url:
+slack_url:
+twitter_url: https://twitter.com/mapuya19
 
 # Build settings
-theme: minima
+markdown: kramdown
 
+# Plugins
 plugins:
- - jekyll-feed
- - jekyll-seo-tag
+  - jekyll-redirect-from
+
+sass:
+style: compressed
