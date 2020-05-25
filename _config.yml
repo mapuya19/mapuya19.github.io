@@ -33,3 +33,5 @@ plugins:
 
 sass:
 style: compressed
+
+permalink: pretty
