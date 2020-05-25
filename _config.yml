@@ -11,7 +11,7 @@ zip_code:
 country: United States of America
 phone: 
 
-icon: fa-jedi-order # Font Awesome class for your site's icon
+icon: fa-rebel # Font Awesome class for your site's icon
 
 # Social settings
 facebook_url:
