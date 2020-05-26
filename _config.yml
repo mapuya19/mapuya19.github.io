@@ -3,6 +3,7 @@ title: Matthew Apuya
 email: mja610@nyu.edu
 description: A CS Student in New York City
 url: "" # the base hostname & protocol for your site
+baseurl: ""
 author: Matthew Apuya
 street_address: 
 city: 
@@ -33,5 +34,3 @@ plugins:
 
 sass:
 style: compressed
-
-permalink: pretty
