@@ -18,12 +18,12 @@ icon: fa-rebel # Font Awesome class for your site's icon
 facebook_url:
 github_url: https://github.com/mapuya19
 gitlab_url: 
-googleplus_url: 
 instagram_url: https://instagram.com/matthewapuya
-linkedin_url: 
+linkedin_url: https://linkedin.com/in/matthewapuya/
 pinterest_url: 
 slack_url: 
 twitter_url: https://twitter.com/mapuya19
+youtube_url: https://youtube.com/c/MatthewApuya
 
 # Build settings
 markdown: kramdown
