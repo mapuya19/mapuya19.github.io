@@ -3,7 +3,7 @@ title: Projects
 ---
 
 <section>
-	<h2><a href='https:/alberta.ml' target="_blank">Freshman Schedge Generator</a></h2>
+	<h2><a href='https://alberta.ml' target="_blank">Freshman Schedge Generator</a></h2>
     <span class="image main">
         <img src="/assets/images/Alberta.png" alt="" />
     </span>
