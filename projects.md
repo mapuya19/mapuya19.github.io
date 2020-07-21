@@ -3,10 +3,10 @@ title: Projects
 ---
 
 <section>
-	<h2><a href='https://github.com/mapuya19/freshman-schedge-generator' target="_blank">Freshman Schedge Generator</a></h2>
-    <!-- <span class="image main">
-        <img src="/assets/images/pic02.jpg" alt="" />
-    </span> -->
+	<h2><a href='https:/alberta.ml' target="_blank">Freshman Schedge Generator</a></h2>
+    <span class="image main">
+        <img src="/assets/images/Alberta.png" alt="" />
+    </span>
     <p> A website that generates schedules for NYU CAS freshmen, written in React with styled components and Interfaced with API for NYU’s course data.</p>
     <h2><a href='https://mapuya19.itch.io/infinirobot' target="_blank">InfiniRobot</a></h2>
     <span class="image main">
