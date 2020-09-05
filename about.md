@@ -5,7 +5,7 @@ permalink: /about/
 ## **Hi; my name is Matthew Apuya.**
 {: style="text-align: center;"}
 
-I'm a student currently living in New York City. I was born in Pittsburgh, Pennsylvania before moving to Little Rock, Arkansas, where I graduated from Pulaski Academy in 2019. Currently, I attend New York University studying Computer Science (hopefully with a minor in Data Science and Game Design). That being said, I remain passionate about film and photography.
+I'm a student currently living in New York City. I was born in Pittsburgh, Pennsylvania before moving to Little Rock, Arkansas, where I graduated from Pulaski Academy in 2019. Currently, I attend New York University studying Computer Science and minoring in Game Design. That being said, I remain passionate about film and photography.
 
 ## **Experience and Education**
 {: style="text-align: center;"}
