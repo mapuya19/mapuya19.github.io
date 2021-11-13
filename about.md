@@ -7,7 +7,7 @@ permalink: /about/
 
 A student at NYU, studying ComputeR Science and minoring in Game Design.
 
-A native Pittsburgher, before moving to Little Rock Arkansas.
+A native Pittsburgher, before moving to Little Rock, Arkansas.
 
 A developer with experience in JavaScript (ES6), React, Express, Java, Python, C, and more.
 
