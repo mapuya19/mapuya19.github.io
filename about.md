@@ -5,7 +5,7 @@ permalink: /about/
 ## **Hi. I'm Matthew Apuya. I am...**
 {: style="text-align: left;"}
 
-A student at NYU, studying ComputeR Science and minoring in Game Design.
+A student at NYU, studying Computer Science and minoring in Game Design.
 
 A native Pittsburgher, before moving to Little Rock, Arkansas.
 
