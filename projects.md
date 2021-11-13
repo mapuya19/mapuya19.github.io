@@ -8,7 +8,7 @@ title: Projects
         <img src="/assets/images/Alberta.png" alt="" />
     </span>
     <p> A website that generates schedules for NYU CAS freshmen, written in React with styled components and Interfaced with API for NYU’s course data.</p>
-    <h2><a href='https:/acu-nyu.github.io/' target="_blank">acu-nyu.github.io</a></h2>
+    <h2><a href='https://acu-nyu.github.io/' target="_blank">acu-nyu.github.io</a></h2>
     <span class="image main">
         <img src="/assets/images/acu-nyu.png" alt="" />
     </span>
