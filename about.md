@@ -13,8 +13,6 @@ A developer with experience in JavaScript (ES6), React, Express, Java, Python, C
 
 A film and photography lover. I'm especially keen with portrait and travel photography.
 
-An avid traveler. I've been to 21 countries, and hope to go to many more.
-
 ## **Experience and Education**
 {: style="text-align: center;"}
 
