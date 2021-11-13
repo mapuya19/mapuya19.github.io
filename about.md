@@ -2,10 +2,18 @@
 title: About
 permalink: /about/
 ---
-## **Hi; my name is Matthew Apuya.**
-{: style="text-align: center;"}
+## **Hi. I'm Matthew Apuya. I am...**
+{: style="text-align: left;"}
 
-I'm a student currently living in New York City. I was born in Pittsburgh, Pennsylvania before moving to Little Rock, Arkansas, where I graduated from Pulaski Academy in 2019. Currently, I attend New York University studying Computer Science and minoring in Game Design. That being said, I remain passionate about film and photography.
+A student at NYU, studying ComputeR Science and minoring in Game Design.
+
+A native Pittsburgher, before moving to Little Rock Arkansas.
+
+A developer with experience in JavaScript (ES6), React, Express, Java, Python, C, and more.
+
+A film and photography lover. I'm especially keen with portrait and travel photography.
+
+An avid traveler. I've been to 21 countries, and hope to go to many more.
 
 ## **Experience and Education**
 {: style="text-align: center;"}

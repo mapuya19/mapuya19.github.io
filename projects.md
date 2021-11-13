@@ -8,6 +8,11 @@ title: Projects
         <img src="/assets/images/Alberta.png" alt="" />
     </span>
     <p> A website that generates schedules for NYU CAS freshmen, written in React with styled components and Interfaced with API for NYU’s course data.</p>
+    <h2><a href='https:/acu-nyu.github.io/' target="_blank">acu-nyu.github.io</a></h2>
+    <span class="image main">
+        <img src="/assets/images/acu-nyu.png" alt="" />
+    </span>
+    <p> Asian Cultural Union at NYU's Official Website, built with Gatsby and hosted using GitHub Pages. </p>
     <h2><a href='https://mapuya19.itch.io/infinirobot' target="_blank">InfiniRobot</a></h2>
     <span class="image main">
         <img src="/assets/images/InfiniRobot.png" alt="" />
