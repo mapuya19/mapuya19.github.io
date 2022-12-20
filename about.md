@@ -11,16 +11,16 @@ A native Pittsburgher, before moving to Little Rock, Arkansas.
 
 A developer with experience in JavaScript (ES6), React, Express, Java, Python, C, and more.
 
-A film and photography lover. I'm especially keen with portrait and travel photography.
+A digital creator, primarily focusing on film photography and short form content.
 
-## **Experience and Education**
+<!-- ## **Experience and Education**
 {: style="text-align: center;"}
 
 New York University '23 <br>
 ​​Pulaski Academy ‘19 <br>
 Arkansas Governor’s School ‘18 <br>
 PA Amnesty International - Co-President ‘18, ‘19 <br>
-​Eagle Scout <br>
+​Eagle Scout <br> -->
 {: style="text-align: center;"}
 
 <section>
