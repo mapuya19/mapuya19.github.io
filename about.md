@@ -2,10 +2,12 @@
 title: About
 permalink: /about/
 ---
-## **Hi. I'm Matthew Apuya. I am...**
+## **Hi. I'm Matthew. I am...**
 {: style="text-align: left;"}
 
-A student at NYU, studying Computer Science and minoring in Game Design.
+An incoming Operations Analyst at Fiserv.
+
+A recent NYU graduate with a Bachelor's in Computer Science and minors in Game Design and Web Programming & Applications.
 
 A native Pittsburgher, before moving to Little Rock, Arkansas.
 
