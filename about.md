@@ -5,7 +5,7 @@ permalink: /about/
 ## **Hi. I'm Matthew. I am...**
 {: style="text-align: left;"}
 
-An incoming Operations Analyst at Fiserv.
+An incoming Analyst at Fiserv.
 
 A recent NYU graduate with a Bachelor's in Computer Science and minors in Game Design and Web Programming & Applications.
 
