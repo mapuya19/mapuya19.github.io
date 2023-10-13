@@ -1,37 +1,44 @@
-# Site settings
+# this is only for search engines, it does not appear in the home
+# as long as the json variables name and description are provided
 title: Matthew Apuya
-email: hello@matthewapuya.com
-description: Software Engineering & Product in NYC
-url: "" # the base hostname & protocol for your site
+description: Matthew Apuya's Official Website
 baseurl: ""
-author: Matthew Apuya
-street_address: 
-city: New York
-state: NY
-zip_code: 
-country: United States of America
-phone: 
+url: ""
 
-icon: fa-rebel # Font Awesome class for your site's icon
+# this information is shown on the homepage, all fields are optional and
+# can be declared either as a single string or as a string array/hash
+json:
+  name: Matthew Apuya
+  description:
+    - software engineering & product
+    - technology analyst @ fiserv
+    - computer science @ nyu
+    - the one piece is real
+  resume: assets/resume.pdf
+  address:
+    - New York, NY
+  contact:
+    # phone: +1 234 567 890
+    email: hello@matthewapuya.com
+  profiles:
+    github: https://github.com/mapuya19
+    instagram: https://www.instagram.com/matthewapuya
+    linkedin: https://www.linkedin.com/in/matthewapuya
+    photography: https://matthewapuya.passgallery.com/portfolio
+    youtube: https://youtube.com/@apuya
 
-# Social settings
-facebook_url:
-github_url: https://github.com/mapuya19
-gitlab_url: 
-instagram_url: https://instagram.com/matthewapuya
-linkedin_url: https://linkedin.com/in/matthewapuya/
-pinterest_url: 
-slack_url: 
-twitter_url: 
-youtube_url: https://youtube.com/c/MatthewApuya
+exclude:
+  - LICENSE
+  - README.md
 
-# Build settings
-markdown: kramdown
-
-# Plugins
 plugins:
-  - jekyll-redirect-from
   - jekyll-seo-tag
+  - jekyll-sitemap
+
+whitelist:
+  - jekyll-sitemap
 
 sass:
-style: compressed
+  sass_dir: _sass
+  style: compressed
+  sourcemap: never

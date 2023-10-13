@@ -1,0 +1,49 @@
+body {
+  font-family: "hack", monospace;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: #282A36;
+  color: #F8F8F2;
+}
+
+main {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-transform: lowercase;
+
+  @media (min-width: 576px) {
+    font-size: 18px;
+    width: 80%;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+    width: 60%
+  }
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  font-style: italic;
+  color: #50FA7B;
+
+  &:hover,
+  &:active {
+    color: #FF79C6;
+  }
+}
+
+.array-key, .key, .list-key {
+  color: #8BE9FD;
+}
+
+.array-key:after, .list-key:after {
+  color: #F8F8F2;
+}
