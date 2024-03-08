@@ -23,10 +23,10 @@ json:
     email: hello@matthewapuya.com
   profiles:
     github: https://github.com/mapuya19
-    instagram: https://www.instagram.com/matthewapuya
+    # instagram: https://www.instagram.com/matthewapuya
     linkedin: https://www.linkedin.com/in/matthewapuya
     photography: https://apuya.univer.se/
-    youtube: https://youtube.com/@apuya
+    # youtube: https://youtube.com/@apuya
 
 exclude:
   - LICENSE
