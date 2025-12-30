@@ -50,26 +50,14 @@ layout: default
   </div>
   <div class="block">
     {% if site.json.contact %}
-    {% if site.json.contact.first %}
+    {% if site.json.contact.email %}
     <p><span class="list-key">contact</span></p>
     <div class="list">
-      {% for i in site.json.contact %}
-      <p><span class="list-subkey">{{ i | slice: 0 }}</span><span class="list-attr"><a href="mailto:{{ site.json.contact.email }}">{{ i | slice: 1 }}</a></span></p>
-      {% endfor %}
+      <p><span class="list-subkey">email</span><span class="list-attr"><a href="mailto:{{ site.json.contact.email }}">{{ site.json.contact.email }}</a></span></p>
     </div>
     {% else %}
     <p><span class="key">contact</span><span class="attr">{{ site.json.contact }}</span></p>
     {% endif %}
-    {% endif %}
-  </div>
-  <div class="block">
-    {% if site.json.demo %}
-    {% assign demo = site.json.demo | split: "//" | slice: 1 %}
-    <p><span class="key">demo</span><span class="attr"><a href="{{ site.json.demo }}" target="_blank">{{ demo }}</a></span></p>
-    {% endif %}
-    {% if site.json.source %}
-    {% assign source = site.json.source | split: "github.com/" | slice: 1 %}
-    <p><span class="key">source</span><span class="attr"><a href="{{ site.json.source }}" target="_blank">{{ source }}</a></span></p>
     {% endif %}
   </div>
   <div class="block">

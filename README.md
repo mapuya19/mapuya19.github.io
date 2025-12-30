@@ -1,8 +1,26 @@
 # mapuya19.github.io
-My personal website, built with Jekyll and hosted with Github Pages. 
+My personal website, built with Jekyll and hosted on GitHub Pages.
 
 ## Setup
-Follow the instructions on [Jekyll's website](https://jekyllrb.com/docs/installation/macos/).
+1. Install Ruby and Bundler (see [Jekyll's installation guide](https://jekyllrb.com/docs/installation/macos/))
+2. Install dependencies:
+   ```bash
+   bundle install
+   ```
+3. Run locally:
+   ```bash
+   bundle exec jekyll serve
+   ```
+4. Build for production:
+   ```bash
+   bundle exec jekyll build
+   ```
 
-## Screenshots
-![Image of mapuya19.github.io](https://github.com/mapuya19/mapuya19.github.io/blob/master/mapuya19.github.io.png?raw=true)
+## Updating Dependencies
+To update gems to their latest compatible versions:
+```bash
+bundle update
+```
+
+## Screenshot
+![Website screenshot](Screenshot.png)
