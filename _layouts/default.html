@@ -4,7 +4,38 @@
 {% include head.html %}
 
 <body>
-  {{ content }}
+  <!-- Boot Screen with CRT Effects -->
+  <div id="boot-screen" class="boot-screen">
+    <!-- CRT Effects for boot screen -->
+    <div class="scanlines"></div>
+    <div class="scan-beam"></div>
+    <div class="noise-overlay"></div>
+    <div class="vignette"></div>
+    <div class="screen-glare"></div>
+    <div id="boot-content"></div>
+  </div>
+
+  <!-- CRT Glass Effect Container -->
+  <div class="crt-glass phosphor-glow glitch-hover">
+    <!-- Scanlines Overlay -->
+    <div class="scanlines"></div>
+    <!-- Scan Beam Effect -->
+    <div class="scan-beam"></div>
+    <!-- Noise/Grain Overlay -->
+    <div class="noise-overlay"></div>
+    <!-- Vignette Overlay -->
+    <div class="vignette"></div>
+    <!-- Screen Glare -->
+    <div class="screen-glare"></div>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+      {{ content }}
+    </div>
+  </div>
+
+  <!-- Terminal.js for boot sequence and easter egg -->
+  <script src="/assets/js/terminal.js"></script>
 </body>
 
 </html>
