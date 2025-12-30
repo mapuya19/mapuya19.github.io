@@ -1,18 +1,72 @@
+// =============================================================================
+// Base Styles
+// =============================================================================
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: none !important; // Hide real cursor - we use a custom one under the CRT
+}
+
 body {
   font-family: "hack", monospace;
   font-size: 16px;
   font-weight: 400;
   background-color: #282A36;
   color: #F8F8F2;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  cursor: none !important;
+}
+
+// =============================================================================
+// Custom Cursor (Vintage Microsoft Windows 3.1/95 style)
+// Positioned under CRT overlays for authentic retro feel
+// =============================================================================
+.custom-cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 90; // Below scanlines (99), vignette (100), etc.
+  will-change: transform;
+  image-rendering: pixelated;
+  -ms-interpolation-mode: nearest-neighbor;
+  
+  &.cursor-default {
+    // Windows 98 arrow_d.cur - exact pixel recreation from original .cur file
+    // 11 pixels wide, 19 pixels tall (trimmed from 32x32)
+    width: 11px;
+    height: 19px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='19' viewBox='0 0 11 19' shape-rendering='crispEdges'%3E%3Crect fill='black' x='0' y='0' width='1' height='1'/%3E%3Crect fill='black' x='0' y='1' width='1' height='1'/%3E%3Crect fill='black' x='1' y='1' width='1' height='1'/%3E%3Crect fill='black' x='0' y='2' width='1' height='1'/%3E%3Crect fill='white' x='1' y='2' width='1' height='1'/%3E%3Crect fill='black' x='2' y='2' width='1' height='1'/%3E%3Crect fill='black' x='0' y='3' width='1' height='1'/%3E%3Crect fill='white' x='1' y='3' width='1' height='1'/%3E%3Crect fill='white' x='2' y='3' width='1' height='1'/%3E%3Crect fill='black' x='3' y='3' width='1' height='1'/%3E%3Crect fill='black' x='0' y='4' width='1' height='1'/%3E%3Crect fill='white' x='1' y='4' width='1' height='1'/%3E%3Crect fill='white' x='2' y='4' width='1' height='1'/%3E%3Crect fill='white' x='3' y='4' width='1' height='1'/%3E%3Crect fill='black' x='4' y='4' width='1' height='1'/%3E%3Crect fill='black' x='0' y='5' width='1' height='1'/%3E%3Crect fill='white' x='1' y='5' width='1' height='1'/%3E%3Crect fill='white' x='2' y='5' width='1' height='1'/%3E%3Crect fill='white' x='3' y='5' width='1' height='1'/%3E%3Crect fill='white' x='4' y='5' width='1' height='1'/%3E%3Crect fill='black' x='5' y='5' width='1' height='1'/%3E%3Crect fill='black' x='0' y='6' width='1' height='1'/%3E%3Crect fill='white' x='1' y='6' width='1' height='1'/%3E%3Crect fill='white' x='2' y='6' width='1' height='1'/%3E%3Crect fill='white' x='3' y='6' width='1' height='1'/%3E%3Crect fill='white' x='4' y='6' width='1' height='1'/%3E%3Crect fill='white' x='5' y='6' width='1' height='1'/%3E%3Crect fill='black' x='6' y='6' width='1' height='1'/%3E%3Crect fill='black' x='0' y='7' width='1' height='1'/%3E%3Crect fill='white' x='1' y='7' width='1' height='1'/%3E%3Crect fill='white' x='2' y='7' width='1' height='1'/%3E%3Crect fill='white' x='3' y='7' width='1' height='1'/%3E%3Crect fill='white' x='4' y='7' width='1' height='1'/%3E%3Crect fill='white' x='5' y='7' width='1' height='1'/%3E%3Crect fill='white' x='6' y='7' width='1' height='1'/%3E%3Crect fill='black' x='7' y='7' width='1' height='1'/%3E%3Crect fill='black' x='0' y='8' width='1' height='1'/%3E%3Crect fill='white' x='1' y='8' width='1' height='1'/%3E%3Crect fill='white' x='2' y='8' width='1' height='1'/%3E%3Crect fill='white' x='3' y='8' width='1' height='1'/%3E%3Crect fill='white' x='4' y='8' width='1' height='1'/%3E%3Crect fill='white' x='5' y='8' width='1' height='1'/%3E%3Crect fill='white' x='6' y='8' width='1' height='1'/%3E%3Crect fill='white' x='7' y='8' width='1' height='1'/%3E%3Crect fill='black' x='8' y='8' width='1' height='1'/%3E%3Crect fill='black' x='0' y='9' width='1' height='1'/%3E%3Crect fill='white' x='1' y='9' width='1' height='1'/%3E%3Crect fill='white' x='2' y='9' width='1' height='1'/%3E%3Crect fill='white' x='3' y='9' width='1' height='1'/%3E%3Crect fill='white' x='4' y='9' width='1' height='1'/%3E%3Crect fill='white' x='5' y='9' width='1' height='1'/%3E%3Crect fill='white' x='6' y='9' width='1' height='1'/%3E%3Crect fill='white' x='7' y='9' width='1' height='1'/%3E%3Crect fill='white' x='8' y='9' width='1' height='1'/%3E%3Crect fill='black' x='9' y='9' width='1' height='1'/%3E%3Crect fill='black' x='0' y='10' width='1' height='1'/%3E%3Crect fill='white' x='1' y='10' width='1' height='1'/%3E%3Crect fill='white' x='2' y='10' width='1' height='1'/%3E%3Crect fill='white' x='3' y='10' width='1' height='1'/%3E%3Crect fill='white' x='4' y='10' width='1' height='1'/%3E%3Crect fill='white' x='5' y='10' width='1' height='1'/%3E%3Crect fill='black' x='6' y='10' width='1' height='1'/%3E%3Crect fill='black' x='7' y='10' width='1' height='1'/%3E%3Crect fill='black' x='8' y='10' width='1' height='1'/%3E%3Crect fill='black' x='9' y='10' width='1' height='1'/%3E%3Crect fill='black' x='10' y='10' width='1' height='1'/%3E%3Crect fill='black' x='0' y='11' width='1' height='1'/%3E%3Crect fill='white' x='1' y='11' width='1' height='1'/%3E%3Crect fill='white' x='2' y='11' width='1' height='1'/%3E%3Crect fill='black' x='3' y='11' width='1' height='1'/%3E%3Crect fill='white' x='4' y='11' width='1' height='1'/%3E%3Crect fill='white' x='5' y='11' width='1' height='1'/%3E%3Crect fill='black' x='6' y='11' width='1' height='1'/%3E%3Crect fill='black' x='0' y='12' width='1' height='1'/%3E%3Crect fill='white' x='1' y='12' width='1' height='1'/%3E%3Crect fill='black' x='2' y='12' width='1' height='1'/%3E%3Crect fill='black' x='4' y='12' width='1' height='1'/%3E%3Crect fill='white' x='5' y='12' width='1' height='1'/%3E%3Crect fill='white' x='6' y='12' width='1' height='1'/%3E%3Crect fill='black' x='7' y='12' width='1' height='1'/%3E%3Crect fill='black' x='0' y='13' width='1' height='1'/%3E%3Crect fill='black' x='1' y='13' width='1' height='1'/%3E%3Crect fill='black' x='4' y='13' width='1' height='1'/%3E%3Crect fill='white' x='5' y='13' width='1' height='1'/%3E%3Crect fill='white' x='6' y='13' width='1' height='1'/%3E%3Crect fill='black' x='7' y='13' width='1' height='1'/%3E%3Crect fill='black' x='0' y='14' width='1' height='1'/%3E%3Crect fill='black' x='5' y='14' width='1' height='1'/%3E%3Crect fill='white' x='6' y='14' width='1' height='1'/%3E%3Crect fill='white' x='7' y='14' width='1' height='1'/%3E%3Crect fill='black' x='8' y='14' width='1' height='1'/%3E%3Crect fill='black' x='5' y='15' width='1' height='1'/%3E%3Crect fill='white' x='6' y='15' width='1' height='1'/%3E%3Crect fill='white' x='7' y='15' width='1' height='1'/%3E%3Crect fill='black' x='8' y='15' width='1' height='1'/%3E%3Crect fill='black' x='6' y='16' width='1' height='1'/%3E%3Crect fill='white' x='7' y='16' width='1' height='1'/%3E%3Crect fill='white' x='8' y='16' width='1' height='1'/%3E%3Crect fill='black' x='9' y='16' width='1' height='1'/%3E%3Crect fill='black' x='6' y='17' width='1' height='1'/%3E%3Crect fill='white' x='7' y='17' width='1' height='1'/%3E%3Crect fill='white' x='8' y='17' width='1' height='1'/%3E%3Crect fill='black' x='9' y='17' width='1' height='1'/%3E%3Crect fill='black' x='7' y='18' width='1' height='1'/%3E%3Crect fill='black' x='8' y='18' width='1' height='1'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+  &.cursor-pointer {
+    // Windows 98 hand-s.cur - exact pixel recreation from original .cur file
+    // Hotspot is at (4, 0), 11 pixels wide, 18 pixels tall (trimmed from 32x32)
+    width: 11px;
+    height: 18px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='18' viewBox='0 0 11 18' shape-rendering='crispEdges'%3E%3Crect fill='black' x='4' y='0' width='1' height='1'/%3E%3Crect fill='black' x='3' y='1' width='1' height='1'/%3E%3Crect fill='white' x='4' y='1' width='1' height='1'/%3E%3Crect fill='black' x='5' y='1' width='1' height='1'/%3E%3Crect fill='black' x='3' y='2' width='1' height='1'/%3E%3Crect fill='white' x='4' y='2' width='1' height='1'/%3E%3Crect fill='black' x='5' y='2' width='1' height='1'/%3E%3Crect fill='black' x='3' y='3' width='1' height='1'/%3E%3Crect fill='white' x='4' y='3' width='1' height='1'/%3E%3Crect fill='black' x='5' y='3' width='1' height='1'/%3E%3Crect fill='black' x='3' y='4' width='1' height='1'/%3E%3Crect fill='white' x='4' y='4' width='1' height='1'/%3E%3Crect fill='black' x='5' y='4' width='1' height='1'/%3E%3Crect fill='black' x='6' y='4' width='1' height='1'/%3E%3Crect fill='black' x='3' y='5' width='1' height='1'/%3E%3Crect fill='white' x='4' y='5' width='1' height='1'/%3E%3Crect fill='black' x='5' y='5' width='1' height='1'/%3E%3Crect fill='white' x='6' y='5' width='1' height='1'/%3E%3Crect fill='black' x='7' y='5' width='1' height='1'/%3E%3Crect fill='black' x='8' y='5' width='1' height='1'/%3E%3Crect fill='black' x='3' y='6' width='1' height='1'/%3E%3Crect fill='white' x='4' y='6' width='1' height='1'/%3E%3Crect fill='black' x='5' y='6' width='1' height='1'/%3E%3Crect fill='white' x='6' y='6' width='1' height='1'/%3E%3Crect fill='black' x='7' y='6' width='1' height='1'/%3E%3Crect fill='white' x='8' y='6' width='1' height='1'/%3E%3Crect fill='black' x='9' y='6' width='1' height='1'/%3E%3Crect fill='black' x='10' y='6' width='1' height='1'/%3E%3Crect fill='black' x='0' y='7' width='1' height='1'/%3E%3Crect fill='black' x='1' y='7' width='1' height='1'/%3E%3Crect fill='black' x='3' y='7' width='1' height='1'/%3E%3Crect fill='white' x='4' y='7' width='1' height='1'/%3E%3Crect fill='black' x='5' y='7' width='1' height='1'/%3E%3Crect fill='white' x='6' y='7' width='1' height='1'/%3E%3Crect fill='black' x='7' y='7' width='1' height='1'/%3E%3Crect fill='white' x='8' y='7' width='1' height='1'/%3E%3Crect fill='black' x='9' y='7' width='1' height='1'/%3E%3Crect fill='white' x='10' y='7' width='1' height='1'/%3E%3Crect fill='black' x='0' y='8' width='1' height='1'/%3E%3Crect fill='white' x='1' y='8' width='1' height='1'/%3E%3Crect fill='black' x='2' y='8' width='1' height='1'/%3E%3Crect fill='black' x='3' y='8' width='1' height='1'/%3E%3Crect fill='white' x='4' y='8' width='1' height='1'/%3E%3Crect fill='white' x='5' y='8' width='1' height='1'/%3E%3Crect fill='white' x='6' y='8' width='1' height='1'/%3E%3Crect fill='white' x='7' y='8' width='1' height='1'/%3E%3Crect fill='white' x='8' y='8' width='1' height='1'/%3E%3Crect fill='black' x='9' y='8' width='1' height='1'/%3E%3Crect fill='white' x='10' y='8' width='1' height='1'/%3E%3Crect fill='black' x='0' y='9' width='1' height='1'/%3E%3Crect fill='white' x='1' y='9' width='1' height='1'/%3E%3Crect fill='white' x='2' y='9' width='1' height='1'/%3E%3Crect fill='black' x='3' y='9' width='1' height='1'/%3E%3Crect fill='white' x='4' y='9' width='1' height='1'/%3E%3Crect fill='white' x='5' y='9' width='1' height='1'/%3E%3Crect fill='white' x='6' y='9' width='1' height='1'/%3E%3Crect fill='white' x='7' y='9' width='1' height='1'/%3E%3Crect fill='white' x='8' y='9' width='1' height='1'/%3E%3Crect fill='white' x='9' y='9' width='1' height='1'/%3E%3Crect fill='black' x='10' y='9' width='1' height='1'/%3E%3Crect fill='black' x='1' y='10' width='1' height='1'/%3E%3Crect fill='white' x='2' y='10' width='1' height='1'/%3E%3Crect fill='black' x='3' y='10' width='1' height='1'/%3E%3Crect fill='white' x='4' y='10' width='1' height='1'/%3E%3Crect fill='white' x='5' y='10' width='1' height='1'/%3E%3Crect fill='white' x='6' y='10' width='1' height='1'/%3E%3Crect fill='white' x='7' y='10' width='1' height='1'/%3E%3Crect fill='white' x='8' y='10' width='1' height='1'/%3E%3Crect fill='white' x='9' y='10' width='1' height='1'/%3E%3Crect fill='black' x='10' y='10' width='1' height='1'/%3E%3Crect fill='black' x='1' y='11' width='1' height='1'/%3E%3Crect fill='white' x='2' y='11' width='1' height='1'/%3E%3Crect fill='black' x='3' y='11' width='1' height='1'/%3E%3Crect fill='white' x='4' y='11' width='1' height='1'/%3E%3Crect fill='white' x='5' y='11' width='1' height='1'/%3E%3Crect fill='white' x='6' y='11' width='1' height='1'/%3E%3Crect fill='white' x='7' y='11' width='1' height='1'/%3E%3Crect fill='white' x='8' y='11' width='1' height='1'/%3E%3Crect fill='white' x='9' y='11' width='1' height='1'/%3E%3Crect fill='black' x='10' y='11' width='1' height='1'/%3E%3Crect fill='black' x='2' y='12' width='1' height='1'/%3E%3Crect fill='white' x='3' y='12' width='1' height='1'/%3E%3Crect fill='white' x='4' y='12' width='1' height='1'/%3E%3Crect fill='white' x='5' y='12' width='1' height='1'/%3E%3Crect fill='white' x='6' y='12' width='1' height='1'/%3E%3Crect fill='white' x='7' y='12' width='1' height='1'/%3E%3Crect fill='white' x='8' y='12' width='1' height='1'/%3E%3Crect fill='white' x='9' y='12' width='1' height='1'/%3E%3Crect fill='black' x='10' y='12' width='1' height='1'/%3E%3Crect fill='black' x='2' y='13' width='1' height='1'/%3E%3Crect fill='white' x='3' y='13' width='1' height='1'/%3E%3Crect fill='white' x='4' y='13' width='1' height='1'/%3E%3Crect fill='white' x='5' y='13' width='1' height='1'/%3E%3Crect fill='white' x='6' y='13' width='1' height='1'/%3E%3Crect fill='white' x='7' y='13' width='1' height='1'/%3E%3Crect fill='white' x='8' y='13' width='1' height='1'/%3E%3Crect fill='white' x='9' y='13' width='1' height='1'/%3E%3Crect fill='black' x='10' y='13' width='1' height='1'/%3E%3Crect fill='black' x='3' y='14' width='1' height='1'/%3E%3Crect fill='white' x='4' y='14' width='1' height='1'/%3E%3Crect fill='white' x='5' y='14' width='1' height='1'/%3E%3Crect fill='white' x='6' y='14' width='1' height='1'/%3E%3Crect fill='white' x='7' y='14' width='1' height='1'/%3E%3Crect fill='white' x='8' y='14' width='1' height='1'/%3E%3Crect fill='black' x='9' y='14' width='1' height='1'/%3E%3Crect fill='black' x='3' y='15' width='1' height='1'/%3E%3Crect fill='white' x='4' y='15' width='1' height='1'/%3E%3Crect fill='white' x='5' y='15' width='1' height='1'/%3E%3Crect fill='white' x='6' y='15' width='1' height='1'/%3E%3Crect fill='white' x='7' y='15' width='1' height='1'/%3E%3Crect fill='white' x='8' y='15' width='1' height='1'/%3E%3Crect fill='black' x='9' y='15' width='1' height='1'/%3E%3Crect fill='black' x='3' y='16' width='1' height='1'/%3E%3Crect fill='white' x='4' y='16' width='1' height='1'/%3E%3Crect fill='white' x='5' y='16' width='1' height='1'/%3E%3Crect fill='white' x='6' y='16' width='1' height='1'/%3E%3Crect fill='white' x='7' y='16' width='1' height='1'/%3E%3Crect fill='white' x='8' y='16' width='1' height='1'/%3E%3Crect fill='black' x='9' y='16' width='1' height='1'/%3E%3Crect fill='black' x='4' y='17' width='1' height='1'/%3E%3Crect fill='black' x='5' y='17' width='1' height='1'/%3E%3Crect fill='black' x='6' y='17' width='1' height='1'/%3E%3Crect fill='black' x='7' y='17' width='1' height='1'/%3E%3Crect fill='black' x='8' y='17' width='1' height='1'/%3E%3Crect fill='black' x='9' y='17' width='1' height='1'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+  // Hide on touch devices
+  @media (hover: none) and (pointer: coarse) {
+    display: none;
+  }
 }
 
 main {
   position: absolute;
-  width: 100%;
+  width: 85%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-transform: lowercase;
+  padding-bottom: 3rem; // Space for status bar
 
   @media (min-width: 576px) {
     font-size: 18px;
@@ -21,7 +75,7 @@ main {
 
   @media (min-width: 768px) {
     font-size: 20px;
-    width: 60%
+    width: 60%;
   }
 }
 
@@ -33,6 +87,9 @@ a {
   color: inherit;
   font-style: italic;
   color: #50FA7B;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  display: inline-block;
 
   &:hover,
   &:active {
@@ -46,4 +103,25 @@ a {
 
 .array-key:after, .list-key:after {
   color: #F8F8F2;
+}
+
+// =============================================================================
+// Typed.js Cursor Enhancement
+// =============================================================================
+.typed-cursor {
+  color: #50FA7B;
+  animation: cursor-glow 1.5s ease-in-out infinite;
+}
+
+@keyframes cursor-glow {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(80, 250, 123, 0.5);
+    opacity: 1;
+  }
+  50% {
+    text-shadow: 
+      0 0 10px rgba(80, 250, 123, 0.8),
+      0 0 20px rgba(80, 250, 123, 0.4);
+    opacity: 0;
+  }
 }
