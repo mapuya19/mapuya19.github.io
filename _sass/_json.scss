@@ -1,4 +1,5 @@
 .json {
+  // Keep nowrap to prevent wrapping, use smaller font on mobile
   white-space: nowrap;
 
   &:before {
@@ -13,6 +14,12 @@
   margin-left: 1.5rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  
+  @media (max-width: 767px) {
+    margin-left: 0.5rem; // Small left margin on mobile
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
 }
 
 .key:after {
@@ -21,11 +28,47 @@
 
 .attr,
 .list-attr {
+  // Prevent wrapping, allow text to scale if needed
+  white-space: nowrap;
+  
   &:before {
     content: '"';
   }
   &:after {
     content: '",';
+  }
+  
+  // Scale down slightly on mobile to fit long text
+  @media (max-width: 767px) {
+    font-size: 0.95em; // Slightly smaller on mobile
+  }
+  
+  @media (max-width: 375px) {
+    font-size: 0.9em; // Smaller on very small screens
+  }
+}
+
+// Target the typed description specifically
+#typed {
+  white-space: nowrap;
+  
+  @media (max-width: 767px) {
+    font-size: 0.95em;
+  }
+  
+  @media (max-width: 375px) {
+    font-size: 0.9em;
+  }
+}
+
+// Scale down the first block (which contains description) on mobile
+.block:first-of-type {
+  @media (max-width: 767px) {
+    font-size: 0.95em;
+  }
+  
+  @media (max-width: 375px) {
+    font-size: 0.9em;
   }
 }
 

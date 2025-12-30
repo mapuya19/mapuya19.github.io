@@ -61,26 +61,45 @@ body {
 
 main {
   position: absolute;
-  width: 85%;
+  width: 90%; // Balanced width on mobile
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-transform: lowercase;
   padding-bottom: 3rem; // Space for status bar
+  padding-left: 0.5rem; // Slight padding on mobile
+  padding-right: 0.5rem;
+  max-width: 100%;
+  box-sizing: border-box;
+  font-size: 13.5px; // Balanced font size on mobile
+  
+  // Prevent horizontal overflow
+  overflow-x: hidden;
 
   @media (min-width: 576px) {
     font-size: 18px;
     width: 80%;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
   @media (min-width: 768px) {
     font-size: 20px;
     width: 60%;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
 p {
   margin: 0;
+  white-space: nowrap; // Keep paragraphs on one line
+  overflow: hidden; // Prevent overflow
+}
+
+// Spans should also stay on one line
+span {
+  white-space: nowrap;
 }
 
 a {
