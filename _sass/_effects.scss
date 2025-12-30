@@ -1,0 +1,526 @@
+// =============================================================================
+// Terminal Visual Effects
+// CRT screen simulation, scanlines, noise, glow effects
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// CRT Glass Effect - Vignette and curved glass feel
+// -----------------------------------------------------------------------------
+.crt-glass {
+  position: fixed;
+  inset: 0;
+  background-color: #282A36;
+  overflow: hidden;
+}
+
+// Vignette - darkened edges for depth
+.vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.25) 80%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+}
+
+// Subtle screen glare/reflection
+.screen-glare {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 101;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    transparent 40%,
+    transparent 100%
+  );
+}
+
+// -----------------------------------------------------------------------------
+// Scanlines Overlay - Horizontal CRT lines
+// -----------------------------------------------------------------------------
+.scanlines {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 99;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15) 0px,
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  animation: scanline-flicker 0.1s infinite;
+  
+  @media (max-width: 576px) {
+    opacity: 0.5;
+  }
+}
+
+@keyframes scanline-flicker {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.85; }
+}
+
+// Scan beam effect - subtle moving line
+.scan-beam {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(80, 250, 123, 0.03),
+    transparent
+  );
+  pointer-events: none;
+  z-index: 98;
+  animation: scan-beam 8s linear infinite;
+  
+  @media (max-width: 576px) {
+    display: none;
+  }
+}
+
+@keyframes scan-beam {
+  0% { top: -4px; }
+  100% { top: 100vh; }
+}
+
+// -----------------------------------------------------------------------------
+// Noise/Grain Texture Overlay
+// -----------------------------------------------------------------------------
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 97;
+  opacity: 0.03;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    animation: noise-shift 0.5s steps(10) infinite;
+  }
+  
+  @media (max-width: 576px) {
+    display: none;
+  }
+}
+
+@keyframes noise-shift {
+  0% { transform: translate(0, 0); }
+  10% { transform: translate(-1%, -1%); }
+  20% { transform: translate(1%, 1%); }
+  30% { transform: translate(-1%, 1%); }
+  40% { transform: translate(1%, -1%); }
+  50% { transform: translate(-1%, 0); }
+  60% { transform: translate(1%, 0); }
+  70% { transform: translate(0, 1%); }
+  80% { transform: translate(0, -1%); }
+  90% { transform: translate(1%, 1%); }
+  100% { transform: translate(0, 0); }
+}
+
+// -----------------------------------------------------------------------------
+// Phosphor Glow Effects
+// -----------------------------------------------------------------------------
+.phosphor-glow {
+  // Keys (cyan)
+  .key, .array-key, .list-key, .list-subkey {
+    text-shadow: 
+      0 0 5px rgba(139, 233, 253, 0.4),
+      0 0 10px rgba(139, 233, 253, 0.2);
+  }
+  
+  // Links (green)
+  a {
+    text-shadow: 
+      0 0 5px rgba(80, 250, 123, 0.5),
+      0 0 15px rgba(80, 250, 123, 0.2);
+    
+    &:hover, &:active {
+      text-shadow: 
+        0 0 8px rgba(255, 121, 198, 0.6),
+        0 0 20px rgba(255, 121, 198, 0.3);
+    }
+  }
+  
+  // Attributes (white)
+  .attr, .array-attr, .list-attr {
+    text-shadow: 
+      0 0 3px rgba(248, 248, 242, 0.3),
+      0 0 8px rgba(248, 248, 242, 0.1);
+  }
+  
+  // JSON braces
+  .json::before, .json::after {
+    text-shadow: 
+      0 0 8px rgba(248, 248, 242, 0.4),
+      0 0 15px rgba(248, 248, 242, 0.2);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Glitch Hover Effect for Links
+// -----------------------------------------------------------------------------
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+    text-shadow: 
+      0 0 5px rgba(80, 250, 123, 0.5),
+      0 0 15px rgba(80, 250, 123, 0.2);
+  }
+  20% {
+    transform: translate(-2px, 1px);
+    text-shadow: 
+      2px 0 #ff79c6,
+      -2px 0 #8be9fd;
+  }
+  40% {
+    transform: translate(2px, -1px);
+    text-shadow: 
+      -2px 0 #ff79c6,
+      2px 0 #8be9fd;
+  }
+  60% {
+    transform: translate(-1px, -1px);
+    text-shadow: 
+      1px 0 #ff79c6,
+      -1px 0 #8be9fd;
+  }
+  80% {
+    transform: translate(1px, 1px);
+    text-shadow: 
+      -1px 0 #ff79c6,
+      1px 0 #8be9fd;
+  }
+  100% {
+    transform: translate(0);
+    text-shadow: 
+      0 0 8px rgba(255, 121, 198, 0.6),
+      0 0 20px rgba(255, 121, 198, 0.3);
+  }
+}
+
+.glitch-hover a:hover {
+  animation: glitch 0.3s ease forwards;
+  display: inline-block;
+}
+
+// -----------------------------------------------------------------------------
+// Boot Screen Styles
+// -----------------------------------------------------------------------------
+.boot-screen {
+  position: fixed;
+  inset: 0;
+  background: #282A36;
+  z-index: 1000;
+  font-family: "hack", monospace;
+  font-size: 14px;
+  overflow: hidden;
+  
+  @media (min-width: 576px) {
+    font-size: 16px;
+  }
+  
+  // CRT effects inside boot screen need adjusted z-index
+  .scanlines,
+  .scan-beam,
+  .noise-overlay,
+  .vignette,
+  .screen-glare {
+    z-index: 1001;
+  }
+  
+  #boot-content {
+    position: relative;
+    z-index: 1002;
+    padding: 2rem;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+    @media (min-width: 576px) {
+      padding: 3rem;
+    }
+  }
+  
+  &.fade-out {
+    animation: boot-fadeout 0.8s ease forwards;
+  }
+  
+  &.hidden {
+    display: none;
+  }
+}
+
+.boot-line {
+  color: #50FA7B;
+  margin: 0;
+  padding: 2px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  
+  &.error {
+    color: #FF5555;
+  }
+  
+  &.warning {
+    color: #FFB86C;
+  }
+  
+  &.info {
+    color: #8BE9FD;
+  }
+  
+  &.success {
+    color: #50FA7B;
+  }
+  
+  .ok-tag {
+    color: #50FA7B;
+  }
+  
+  .fail-tag {
+    color: #FF5555;
+  }
+}
+
+.boot-cursor {
+  display: inline-block;
+  width: 10px;
+  height: 1.2em;
+  background: #50FA7B;
+  margin-left: 2px;
+  animation: cursor-blink 0.7s infinite;
+  vertical-align: text-bottom;
+}
+
+@keyframes cursor-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes boot-fadeout {
+  0% { opacity: 1; }
+  100% { 
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+// Main content initially hidden during boot
+.main-content {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  
+  &.visible {
+    opacity: 1;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// ASCII Art Modal (Easter Egg)
+// -----------------------------------------------------------------------------
+.ascii-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(40, 42, 54, 0.97);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .ascii-art {
+    color: #FFB86C;
+    font-family: "hack", monospace;
+    font-size: clamp(6px, 1.5vw, 14px);
+    line-height: 1.2;
+    text-shadow: 
+      0 0 10px rgba(255, 184, 108, 0.6),
+      0 0 30px rgba(255, 184, 108, 0.3);
+    white-space: pre;
+    text-align: center;
+    
+    @media (max-width: 576px) {
+      font-size: 8px;
+    }
+  }
+  
+  .ascii-message {
+    color: #FF79C6;
+    font-family: "hack", monospace;
+    font-size: 14px;
+    margin-top: 2rem;
+    text-shadow: 0 0 10px rgba(255, 121, 198, 0.5);
+    animation: pulse-glow 2s ease-in-out infinite;
+    
+    @media (min-width: 576px) {
+      font-size: 18px;
+    }
+  }
+  
+  .dismiss-hint {
+    position: absolute;
+    bottom: 2rem;
+    color: #6272A4;
+    font-family: "hack", monospace;
+    font-size: 12px;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(255, 121, 198, 0.5);
+  }
+  50% {
+    text-shadow: 
+      0 0 20px rgba(255, 121, 198, 0.8),
+      0 0 40px rgba(255, 121, 198, 0.4);
+  }
+}
+
+// Easter egg trigger styling
+.easter-egg {
+  transition: all 0.2s ease;
+  
+  &:hover {
+    color: #FFB86C !important;
+    text-shadow: 0 0 10px rgba(255, 184, 108, 0.5);
+  }
+}
+
+// Easter egg active state (when typed.js shows "one piece")
+.easter-egg-active {
+  transition: all 0.2s ease;
+  
+  &:hover {
+    color: #FFB86C !important;
+    text-shadow: 0 0 10px rgba(255, 184, 108, 0.5);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Status Bar
+// -----------------------------------------------------------------------------
+.status-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(40, 42, 54, 0.95);
+  border-top: 1px solid #44475A;
+  padding: 0.5rem 1rem;
+  font-family: "hack", monospace;
+  font-size: 11px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 50;
+  color: #6272A4;
+  
+  @media (min-width: 576px) {
+    font-size: 12px;
+    padding: 0.5rem 2rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.4rem 0.75rem;
+    font-size: 9px;
+    gap: 0.25rem;
+  }
+  
+  span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+    @media (max-width: 480px) {
+      gap: 0.25rem;
+    }
+  }
+  
+  .status-indicator {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #50FA7B;
+    animation: status-pulse 2s ease-in-out infinite;
+    
+    @media (max-width: 480px) {
+      width: 5px;
+      height: 5px;
+    }
+  }
+  
+  .status-time {
+    color: #8BE9FD;
+  }
+  
+  .status-uptime {
+    color: #BD93F9;
+  }
+  
+  .status-session {
+    color: #50FA7B;
+  }
+}
+
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+// -----------------------------------------------------------------------------
+// Reduced Motion Support
+// -----------------------------------------------------------------------------
+@media (prefers-reduced-motion: reduce) {
+  .scanlines,
+  .scan-beam,
+  .noise-overlay,
+  .boot-cursor {
+    animation: none;
+  }
+  
+  .glitch-hover a:hover {
+    animation: none;
+  }
+  
+  .boot-screen.fade-out {
+    animation: none;
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  .ascii-modal .ascii-message {
+    animation: none;
+  }
+  
+  .status-bar .status-indicator {
+    animation: none;
+  }
+}
+
