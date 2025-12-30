@@ -172,52 +172,6 @@
   }
 }
 
-// -----------------------------------------------------------------------------
-// Glitch Hover Effect for Links
-// -----------------------------------------------------------------------------
-@keyframes glitch {
-  0% {
-    transform: translate(0);
-    text-shadow: 
-      0 0 5px rgba(80, 250, 123, 0.5),
-      0 0 15px rgba(80, 250, 123, 0.2);
-  }
-  20% {
-    transform: translate(-2px, 1px);
-    text-shadow: 
-      2px 0 #ff79c6,
-      -2px 0 #8be9fd;
-  }
-  40% {
-    transform: translate(2px, -1px);
-    text-shadow: 
-      -2px 0 #ff79c6,
-      2px 0 #8be9fd;
-  }
-  60% {
-    transform: translate(-1px, -1px);
-    text-shadow: 
-      1px 0 #ff79c6,
-      -1px 0 #8be9fd;
-  }
-  80% {
-    transform: translate(1px, 1px);
-    text-shadow: 
-      -1px 0 #ff79c6,
-      1px 0 #8be9fd;
-  }
-  100% {
-    transform: translate(0);
-    text-shadow: 
-      0 0 8px rgba(255, 121, 198, 0.6),
-      0 0 20px rgba(255, 121, 198, 0.3);
-  }
-}
-
-.glitch-hover a:hover {
-  animation: glitch 0.3s ease forwards;
-  display: inline-block;
-}
 
 // -----------------------------------------------------------------------------
 // Boot Screen Styles
@@ -505,9 +459,6 @@
     animation: none;
   }
   
-  .glitch-hover a:hover {
-    animation: none;
-  }
   
   .boot-screen.fade-out {
     animation: none;
