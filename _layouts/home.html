@@ -13,7 +13,11 @@ layout: default
     {% if site.json.description.first %}
     <div id="typed-strings">
       {% for i in site.json.description %}
+      {% if i contains "one piece" %}
+      <span class="easter-egg">"{{ i }}",</span>
+      {% else %}
       <span>{{ i | prepend: '"' | append: '",'}}</span>
+      {% endif %}
       {% endfor %}
     </div>
     <p><span class="key">description</span>{% include typed.html %}</p>
@@ -79,3 +83,13 @@ layout: default
     {% endif %}
   </div>
 </main>
+
+<!-- Status Bar -->
+<footer class="status-bar">
+  <span>
+    <span class="status-indicator"></span>
+    <span class="status-session">guest@mapuya.sh</span>
+  </span>
+  <span class="status-time">00:00:00</span>
+  <span class="status-uptime">uptime: 0h 0m 0s</span>
+</footer>
