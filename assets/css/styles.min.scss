@@ -3,7 +3,7 @@
 # only main files contain this front matter, not partials.
 ---
 
-@use "fonts";
-@use "base";
-@use "json";
-@use "effects";
+@import "fonts";
+@import "base";
+@import "json";
+@import "effects";
