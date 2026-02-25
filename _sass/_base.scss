@@ -57,6 +57,11 @@ body {
   @media (hover: none) and (pointer: coarse) {
     display: none;
   }
+  
+  // Hide for users who prefer reduced motion
+  @media (prefers-reduced-motion: reduce) {
+    display: none;
+  }
 }
 
 main {

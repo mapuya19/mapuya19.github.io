@@ -459,6 +459,21 @@
     animation: none;
   }
   
+  .scanlines,
+  .scan-beam,
+  .noise-overlay,
+  .vignette,
+  .screen-glare {
+    display: none;
+  }
+  
+  .boot-screen {
+    display: none;
+  }
+  
+  .main-content {
+    opacity: 1;
+  }
   
   .boot-screen.fade-out {
     animation: none;

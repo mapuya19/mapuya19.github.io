@@ -366,8 +366,8 @@
     }
 
     init() {
-      // Don't show custom cursor on touch devices
-      if (this.isTouchDevice()) return;
+      // Don't show custom cursor on touch devices or for reduced motion
+      if (this.isTouchDevice() || prefersReducedMotion()) return;
 
       this.createCursor();
       this.bindEvents();
