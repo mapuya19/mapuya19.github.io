@@ -1,0 +1,92 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graduation Portfolio</title>
+  <link rel="stylesheet" href="/assets/css/normalize.min.css" />
+  <link rel="stylesheet" href="/assets/css/styles.min.css" />
+</head>
+
+<body>
+
+<script>
+document.body.classList.add('page-graduation');
+</script>
+
+<!-- CRT Glass Effect Container (without boot screen) -->
+<div class="crt-glass">
+  <!-- Scanlines Overlay -->
+  <div class="scanlines"></div>
+  <!-- Scan Beam Effect -->
+  <div class="scan-beam"></div>
+  <!-- Noise/Grain Overlay -->
+  <div class="noise-overlay"></div>
+  <!-- Vignette Overlay -->
+  <div class="vignette"></div>
+  <!-- Screen Glare -->
+  <div class="screen-glare"></div>
+  
+  <!-- Main Content -->
+  <div class="main-content">
+
+<div class="xp-desktop">
+  <div class="xp-window gallery-window">
+    <div class="xp-titlebar">
+      <div class="xp-titlebar-text">My Pictures - Graduation</div>
+      <div class="xp-titlebar-controls">
+        <button class="xp-button xp-button-minimize" aria-label="Minimize">_</button>
+        <button class="xp-button xp-button-maximize" aria-label="Maximize">□</button>
+        <button class="xp-button xp-button-close" aria-label="Close">×</button>
+      </div>
+    </div>
+    
+    <div class="xp-window-content">
+      <div class="xp-toolbar">
+        <button class="xp-toolbar-button">File</button>
+        <button class="xp-toolbar-button">Edit</button>
+        <button class="xp-toolbar-button">View</button>
+        <button class="xp-toolbar-button">Help</button>
+        <a href="https://www.instagram.com/matthewapuya/" target="_blank" rel="noopener noreferrer" class="xp-toolbar-link xp-toolbar-instagram">Instagram</a>
+        <a href="mailto:hello@matthewapuya.com" class="xp-toolbar-link xp-toolbar-email">Email</a>
+      </div>
+      
+      <div class="xp-gallery-grid" id="gallery-grid">
+      </div>
+    </div>
+    
+    <div class="xp-statusbar">
+      <span class="xp-statusbar-text">Graduation Photos</span>
+      <span class="xp-statusbar-text" id="photo-count">0 items</span>
+    </div>
+  </div>
+</div>
+
+<div class="xp-modal" id="xp-modal" style="display: none;">
+  <div class="xp-window modal-window">
+    <div class="xp-titlebar">
+      <div class="xp-titlebar-text">Image Viewer</div>
+      <div class="xp-titlebar-controls">
+        <button class="xp-button xp-button-close" id="modal-close" aria-label="Close">×</button>
+      </div>
+    </div>
+    
+    <div class="xp-window-content modal-content">
+      <div class="modal-image-container">
+        <button class="xp-nav-button xp-nav-prev" id="modal-prev">◀</button>
+        <img class="modal-image" id="modal-image" src="" alt="">
+        <button class="xp-nav-button xp-nav-next" id="modal-next">▶</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/graduation.js"></script>
+  </div>
+</div>
+
+</body>
+</html>
