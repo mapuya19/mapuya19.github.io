@@ -6,7 +6,10 @@
   const MODAL_PREV = document.getElementById('modal-prev');
   const MODAL_NEXT = document.getElementById('modal-next');
   const PHOTO_COUNT = document.getElementById('photo-count');
-
+  const PRICING_MODAL = document.getElementById('pricing-modal');
+  const PRICING_BTN = document.getElementById('pricing-btn');
+  const PRICING_CLOSE = document.getElementById('pricing-close');
+  
   let images = [];
   let currentIndex = 0;
   
@@ -120,23 +123,48 @@
     MODAL_PREV.disabled = images.length <= 1;
     MODAL_NEXT.disabled = images.length <= 1;
   }
+  
+  function openPricingModal() {
+    PRICING_MODAL.style.display = 'flex';
+    PRICING_MODAL.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  
+  function closePricingModal() {
+    PRICING_MODAL.style.display = 'none';
+    PRICING_MODAL.classList.remove('active');
+    document.body.style.overflow = '';
+  }
 
   MODAL_CLOSE.addEventListener('click', closeModal);
   MODAL_PREV.addEventListener('click', showPrevious);
   MODAL_NEXT.addEventListener('click', showNext);
+  
+  PRICING_BTN.addEventListener('click', openPricingModal);
+  PRICING_CLOSE.addEventListener('click', closePricingModal);
 
   MODAL.addEventListener('click', (e) => {
     if (e.target === MODAL) {
       closeModal();
     }
   });
+  
+  PRICING_MODAL.addEventListener('click', (e) => {
+    if (e.target === PRICING_MODAL) {
+      closePricingModal();
+    }
+  });
 
   document.addEventListener('keydown', (e) => {
-    if (!MODAL.classList.contains('active')) return;
-
+    if (!MODAL.classList.contains('active') && !PRICING_MODAL.classList.contains('active')) return;
+    
     switch(e.key) {
       case 'Escape':
-        closeModal();
+        if (PRICING_MODAL.classList.contains('active')) {
+          closePricingModal();
+        } else {
+          closeModal();
+        }
         break;
       case 'ArrowLeft':
         showPrevious();
